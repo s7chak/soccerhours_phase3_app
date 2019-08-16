@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Soccer Hours</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="button_next">Next</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_logout">Logout</string>
+    <string name="button_done">Done</string>
+    <string name="error_password">Password must contain at least 3 characters.</string>
+</resources>
