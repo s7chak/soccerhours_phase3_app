@@ -24,7 +24,7 @@ import java.net.URL
 import java.net.URLEncoder
 import java.util.ArrayList
 
-class ListingFragment : Fragment() {
+class GameListFragment : Fragment() {
     private val jsoncode = 1
     // Uncomment below if response is hardcoded instead of coming from a file asset
 
@@ -37,7 +37,7 @@ class ListingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.listing_fragment, container, false)
+        val view =  inflater.inflate(R.layout.gamelist_fragment, container, false)
 
         userlist = view.userlist
 //        userModelArrayList = getInfo(response)  // uncomment this and comment the next line if response is above

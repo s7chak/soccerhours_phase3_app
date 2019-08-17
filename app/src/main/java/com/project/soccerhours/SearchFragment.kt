@@ -14,13 +14,15 @@ import com.squareup.okhttp.*
 import java.io.IOException
 import android.os.StrictMode
 import android.os.Build
+import kotlinx.android.synthetic.main.home_fragment.view.*
+import kotlinx.android.synthetic.main.search_fragment.view.*
 import java.net.URL
 
 
 /**
  * Fragment representing the login screen.
  */
-class LoginFragment : Fragment() {
+class SearchFragment : Fragment() {
     var gApp = GlobalApp()
     var hosturl = gApp.globalUrl
 
@@ -33,24 +35,11 @@ class LoginFragment : Fragment() {
         }
 
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.login_fragment, container, false)
+        val view = inflater.inflate(R.layout.search_fragment, container, false)
         // Set an error if the password is less than 8 characters.
-        view.login_button.setOnClickListener {
-            if (!isPasswordValid(password_edit_text.text!!)) {
-                password_text_input.error = getString(R.string.error_password)
-            } else {
 
-                password_text_input.error = null
-
-                if (authLoginInfo()) {
-                    (activity as NavigationHost).navigateTo(HomeFragment(), false)
-                }
-
-            }
-        }
-
-        view.signup_button.setOnClickListener {
-            (activity as NavigationHost).navigateTo(SignupFragment(), false)
+        view.ssearch_button.setOnClickListener {
+            (activity as NavigationHost).navigateTo(LogoutFragment(), false)
 
         }
 

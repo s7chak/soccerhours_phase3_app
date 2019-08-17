@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/colorAccent"
+              android:orientation="vertical">
+
+
+    <Button
+            android:text="Start Event"
+            android:layout_width="146dp"
+            android:layout_height="157dp" android:id="@+id/start_button"/>
+    <Button
+            android:text="Joined Games"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/joined_button"/>
+    <Button
+            android:text="Search Games"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/search_button"/>
+
+
+</LinearLayout>

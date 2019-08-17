@@ -3,8 +3,13 @@
     <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
     <string name="button_next">Next</string>
+    <string name="button_login">Login</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_logout">Logout</string>
+    <string name="button_submit">Submit</string>
+    <string name="button_signup">Sign Up</string>
     <string name="button_done">Done</string>
     <string name="error_password">Password must contain at least 3 characters.</string>
+
+    <string name="venue_prompt">Select a venue</string>
 </resources>
