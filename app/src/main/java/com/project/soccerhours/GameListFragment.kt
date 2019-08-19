@@ -11,10 +11,13 @@ import com.squareup.okhttp.MediaType
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
 import com.squareup.okhttp.RequestBody
+import kotlinx.android.synthetic.main.gamelist_fragment.view.*
 import kotlinx.android.synthetic.main.listing_fragment.view.*
+import kotlinx.android.synthetic.main.gamelist_fragment.view.userlist
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import com.squareup.okhttp.*
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -31,8 +34,11 @@ class GameListFragment : Fragment() {
     private var response: String? = null
     private var userlist: ListView? = null
     private var userArrayList: ArrayList<String>? = null
-    private var userModelArrayList: ArrayList<User_Model>? = null
+    private var userModelArrayList: ArrayList<Usergames_model>? = null
     private var customAdapter: CustomAdapter? = null
+
+    var gApp = GlobalApp()
+    var hosturl = gApp.globalUrl
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -41,8 +47,9 @@ class GameListFragment : Fragment() {
 
         userlist = view.userlist
 //        userModelArrayList = getInfo(response)  // uncomment this and comment the next line if response is above
-        response = loadJSONFromAssets();
-
+        /*response = loadJSONFromAssets()
+        */
+        response = loadJSONfromclient()
 
         //Here we wan't to use a Custom Adapter that is tied to a custom Data Model
         // Call getInfo to parse the JSON Array and return as a UserModel ArrayList
@@ -53,24 +60,29 @@ class GameListFragment : Fragment() {
         userlist!!.adapter = customAdapter
 
 
-        view.done_button.setOnClickListener({
-            (activity as NavigationHost).navigateTo(LogoutFragment(), false)
-        })
+        view.back_button.setOnClickListener{
+            (activity as NavigationHost).navigateTo(HomeFragment(), false)
+        }
 
-        return view;
+        return view
     }
 
 
 
-    fun getInfo(response: String): ArrayList<User_Model> {
-        val userModelArrayList = ArrayList<User_Model>()
+    fun getInfo(response: String): ArrayList<Usergames_model> {
+        val userModelArrayList = ArrayList<Usergames_model>()
+
+
         try {
                 val dataArray = JSONArray(response)
                 for (i in 0 until dataArray.length()) {
-                    val usersModel = User_Model()
+                    val usersModel = Usergames_model()
                     val dataobj = dataArray.getJSONObject(i)
-                    usersModel.setNames(dataobj.getString("name"))
-                    usersModel.setEmails(dataobj.getString("email"))
+                    usersModel.setEventnames(dataobj.getString("eventname"))
+                    usersModel.setEventdates(dataobj.getString("eventdate"))
+                    usersModel.setVenueNames(dataobj.getString("venuename"))
+                    usersModel.setStattimes(dataobj.getString("starttime"))
+                    usersModel.setEndtimes(dataobj.getString("endtime"))
                     userModelArrayList.add(usersModel)
                 }
         } catch (e: JSONException) {
@@ -80,6 +92,7 @@ class GameListFragment : Fragment() {
         return userModelArrayList
     }
 
+    /*
     fun loadJSONFromAssets(): String? {
         var json: String? = null
         try {
@@ -96,6 +109,7 @@ class GameListFragment : Fragment() {
 
         return json
     }
+    */
 
     fun getStrings(response: String): ArrayList<String> {
         val userArrayList = ArrayList<String>()
@@ -113,4 +127,22 @@ class GameListFragment : Fragment() {
     }
 
 
+    fun loadJSONfromclient(): String? {
+        val userID = GlobalVars.userId.toString()
+        val url = URL(hosturl+"appjoinedgames/"+userID)
+        var jsonString: String? = null
+
+        Log.i("USERID", userID)
+        Log.e("URL",url.toString())
+        val client = OkHttpClient()
+        val request = Request.Builder()
+            .url(url)
+            .header("User-Agent", "Android")
+            .build()
+        Log.i("REQUEST",request.toString())
+        val response = client.newCall(request).execute()
+        jsonString = response?.body()?.string()
+        print(jsonString)
+        return jsonString
+    }
 }

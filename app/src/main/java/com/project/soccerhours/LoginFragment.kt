@@ -80,10 +80,12 @@ class LoginFragment : Fragment() {
         val jsonString = response?.body()?.string()
         val json = JSONObject(jsonString)
         if (json.get("loggedin") != 0){
-            return true
-        } else {
-            return false
-        }
+                val userid= json.get("userid")
+                GlobalVars.setUserId(userid.toString().toInt())
+                return true
+            } else {
+                return false
+            }
 
 
     }

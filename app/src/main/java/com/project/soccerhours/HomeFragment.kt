@@ -29,19 +29,19 @@ class HomeFragment : Fragment() {
         val view =  inflater.inflate(R.layout.home_fragment, container, false)
 
 
-        view.search_button.setOnClickListener({
+        view.search_button.setOnClickListener{
             (activity as NavigationHost).navigateTo(SearchFragment(), false)
-        })
+        }
 
-        view.start_button.setOnClickListener({
+        view.start_button.setOnClickListener{
             (activity as NavigationHost).navigateTo(StartGameFragment(), false)
-        })
+        }
 
-        view.joined_button.setOnClickListener({
+        view.joined_button.setOnClickListener{
             (activity as NavigationHost).navigateTo(GameListFragment(), false)
-        })
+        }
 
-        return view;
+        return view
     }
 
 

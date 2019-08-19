@@ -1,4 +1,4 @@
-package com.project.soccerhours
+/*package com.project.soccerhours
 
 import android.os.Bundle
 import android.util.Log
@@ -31,7 +31,7 @@ class ListingFragment : Fragment() {
     private var response: String? = null
     private var userlist: ListView? = null
     private var userArrayList: ArrayList<String>? = null
-    private var userModelArrayList: ArrayList<User_Model>? = null
+    private var userModelArrayList: ArrayList<Usergames_model>? = null
     private var customAdapter: CustomAdapter? = null
 
     override fun onCreateView(
@@ -114,3 +114,4 @@ class ListingFragment : Fragment() {
 
 
 }
+*/
