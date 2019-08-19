@@ -7,6 +7,6 @@ import androidx.fragment.app.Fragment
 
 class GlobalApp : Application() {
 
-    var globalUrl = "https://2de53a38.ngrok.io/"
+    var globalUrl = "https://1a510080.ngrok.io/"
 
 }

@@ -57,7 +57,7 @@ class LoginFragment : Fragment() {
         }
 
         view.signup_button.setOnClickListener {
-            (activity as NavigationHost).navigateTo(SignupFragment(), false)
+            (activity as NavigationHost).navigateTo(SignupFragment(), true)
 
         }
 

@@ -15,7 +15,7 @@ class CustomEventAdapter(private val context: Context, private val eventModelArr
     BaseAdapter() {
 
     override fun getViewTypeCount(): Int {
-        return eventModelArrayList.size
+        return 1
     }
 
     override fun getItemViewType(position: Int): Int {
