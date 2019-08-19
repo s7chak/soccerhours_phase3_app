@@ -1,5 +1,6 @@
 package com.project.soccerhours
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
@@ -11,10 +12,16 @@ import kotlinx.android.synthetic.main.login_fragment.*
 import kotlinx.android.synthetic.main.login_fragment.view.*
 import org.json.JSONObject
 import com.squareup.okhttp.*
-import java.io.IOException
 import android.os.StrictMode
 import android.os.Build
 import java.net.URL
+import android.content.Context.MODE_PRIVATE
+import android.content.SharedPreferences
+import android.R.id.edit
+
+
+
+
 
 
 /**
@@ -79,7 +86,12 @@ class LoginFragment : Fragment() {
         val response = client.newCall(request).execute()
         val jsonString = response?.body()?.string()
         val json = JSONObject(jsonString)
+
         if (json.get("loggedin") != 0){
+            val userid= json.get("userid")
+            GlobalVars.setUserId(userid.toString().toInt())
+            GlobalVars.setUsername(username)
+
             return true
         } else {
             return false

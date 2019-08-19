@@ -1,27 +1,15 @@
 package com.project.soccerhours
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import androidx.fragment.app.Fragment
-import com.squareup.okhttp.MediaType
-import com.squareup.okhttp.OkHttpClient
-import com.squareup.okhttp.Request
-import com.squareup.okhttp.RequestBody
 import kotlinx.android.synthetic.main.listing_fragment.view.*
 import org.json.JSONArray
 import org.json.JSONException
-import org.json.JSONObject
-import java.io.BufferedReader
 import java.io.IOException
-import java.io.InputStreamReader
-import java.io.OutputStreamWriter
-import java.net.HttpURLConnection
-import java.net.URL
-import java.net.URLEncoder
 import java.util.ArrayList
 
 class ListingFragment : Fragment() {
@@ -32,7 +20,7 @@ class ListingFragment : Fragment() {
     private var userlist: ListView? = null
     private var userArrayList: ArrayList<String>? = null
     private var userModelArrayList: ArrayList<User_Model>? = null
-    private var customAdapter: CustomAdapter? = null
+    private var customAdapter: CustomEventAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -48,9 +36,9 @@ class ListingFragment : Fragment() {
         // Call getInfo to parse the JSON Array and return as a UserModel ArrayList
         userModelArrayList = getInfo(response!!)
         // Create a Custom Adapter that gives us a way to "view" each user in the ArrayList
-        customAdapter = CustomAdapter(view.context, userModelArrayList!!)
+//        customAdapter = CustomEventAdapter(view.context, userModelArrayList!!)
         // set the custom adapter for the userlist viewing
-        userlist!!.adapter = customAdapter
+//        userlist!!.adapter = customAdapter
 
 
         view.done_button.setOnClickListener({

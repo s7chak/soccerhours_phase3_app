@@ -9,6 +9,8 @@
     <string name="button_submit">Submit</string>
     <string name="button_signup">Sign Up</string>
     <string name="button_done">Done</string>
+    <string name="button_join">Join Game</string>
+    <string name="button_home">Home</string>
     <string name="error_password">Password must contain at least 3 characters.</string>
 
     <string name="venue_prompt">Select a venue</string>

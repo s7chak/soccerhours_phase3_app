@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:hint="Date"
+                android:hint="Date (YYYY-MM-DD)"
                 app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -81,7 +81,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:hint="Start Time"
+                android:hint="Start Time(in 24hr clock)"
                 app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -97,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:hint="End Time">
+                android:hint="End Time(in 24hr clock)">
 
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/eend_edit_text"
@@ -116,8 +116,7 @@
             <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/ecapacity_edit_text"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
+                    android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
