@@ -25,7 +25,9 @@ import kotlinx.android.synthetic.main.eventdetail_fragment.view.venue
 import kotlinx.android.synthetic.main.eventdetail_fragment.view.spots
 import org.json.JSONObject
 
-
+/**
+ * Orignial author: Subhayu Chakravarty
+ */
 class EventDetailFragment : Fragment() {
     companion object {
         fun newInstance(eventDetail: Event_Model): EventDetailFragment {

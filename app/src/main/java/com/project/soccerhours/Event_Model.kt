@@ -1,5 +1,8 @@
 package com.project.soccerhours
 
+/**
+ * Orignial author: Subhayu Chakravarty
+ */
 class Event_Model {
 
     var eventId: String? = null

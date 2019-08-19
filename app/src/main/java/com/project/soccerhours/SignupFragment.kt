@@ -21,7 +21,7 @@ import java.net.URL
 
 
 /**
- * Fragment representing the Sign Up screen.
+ * Orignial author: Subhayu Chakravarty
  */
 class SignupFragment : Fragment() {
     var gApp = GlobalApp()

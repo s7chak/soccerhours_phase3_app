@@ -27,7 +27,7 @@ import java.util.ArrayList
 
 
 /**
- * Fragment representing the login screen.
+ * Orignial author: Subhayu Chakravarty
  */
 class SearchFragment : Fragment() {
     val gApp = GlobalApp()

@@ -32,7 +32,7 @@ import java.util.ArrayList
 
 
 /**
- * Fragment representing the Sign Up screen.
+ * Orignial author: Subhayu Chakravarty
  */
 class StartGameFragment : Fragment() {
     var gApp = GlobalApp()

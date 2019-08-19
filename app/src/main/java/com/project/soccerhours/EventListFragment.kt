@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
-import kotlinx.android.synthetic.main.listing_fragment.view.done_button
+//import kotlinx.android.synthetic.main.listing_fragment.view.done_button
 import org.json.JSONArray
 import org.json.JSONException
 import java.net.URL
@@ -21,6 +21,9 @@ import android.widget.AdapterView.OnItemClickListener
 import kotlinx.android.synthetic.main.search_fragment.*
 
 
+/**
+ * Orignial author: Subhayu Chakravarty
+ */
 class EventListFragment : Fragment() {
     companion object {
         fun newInstance(zipcode: Int): EventListFragment {

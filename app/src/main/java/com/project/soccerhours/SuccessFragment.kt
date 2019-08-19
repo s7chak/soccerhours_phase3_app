@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.success_fragment.view.*
 
-
+/**
+ * Orignial author: Subhayu Chakravarty
+ */
 class SuccessFragment : Fragment() {
     companion object {
         fun newInstance(message: String): SuccessFragment {

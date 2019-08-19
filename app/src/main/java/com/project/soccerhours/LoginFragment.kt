@@ -25,7 +25,7 @@ import android.R.id.edit
 
 
 /**
- * Fragment representing the login screen.
+ * Orignial author: Subhayu Chakravarty
  */
 class LoginFragment : Fragment() {
     var gApp = GlobalApp()

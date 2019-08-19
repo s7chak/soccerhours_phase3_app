@@ -9,6 +9,9 @@ import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.home_fragment.view.*
 import java.util.ArrayList
 
+/**
+ * Orignial author: Subhayu Chakravarty
+ */
 class HomeFragment : Fragment() {
     private val jsoncode = 1
     // Uncomment below if response is hardcoded instead of coming from a file asset
@@ -16,7 +19,6 @@ class HomeFragment : Fragment() {
     private var response: String? = null
     private var userlist: ListView? = null
     private var userArrayList: ArrayList<String>? = null
-    private var userModelArrayList: ArrayList<User_Model>? = null
     private var customAdapter: CustomEventAdapter? = null
 
     override fun onCreateView(
@@ -25,19 +27,26 @@ class HomeFragment : Fragment() {
         val view =  inflater.inflate(R.layout.home_fragment, container, false)
 
 
-        view.search_button.setOnClickListener{
-            (activity as NavigationHost).navigateTo(SearchFragment(), false)
-        }
+        view.search_button.setOnClickListener({
+            (activity as NavigationHost).navigateTo(SearchFragment(), true)
+        })
 
-        view.start_button.setOnClickListener{
-            (activity as NavigationHost).navigateTo(StartGameFragment(), false)
-        }
+        view.start_button.setOnClickListener({
+            (activity as NavigationHost).navigateTo(StartGameFragment(), true)
+        })
 
-        view.joined_button.setOnClickListener{
-            (activity as NavigationHost).navigateTo(GameListFragment(), false)
-        }
+        view.joined_button.setOnClickListener({
+            (activity as NavigationHost).navigateTo(GameListFragment(), true)
+        })
 
-        return view
+        view.logout_button.setOnClickListener({
+            GlobalVars.userId=0
+            GlobalVars.userName=""
+            (activity as NavigationHost).navigateTo(LoginFragment(), true)
+        })
+
+
+        return view;
     }
 
 

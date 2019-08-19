@@ -9,8 +9,8 @@ import android.widget.TextView
 import java.util.ArrayList
 
 /**
- * Orignial author: Parsania Hardik on 03-Jan-17.
- * Modified by Ramesh Yerraballi on 8/12/19
+ * Orignial author: Abhishek Kardak.
+ * Modified by Subhayu Chakravarty on 8/19/19
  */
 @Suppress("NAME_SHADOWING")
 class CustomAdapter(private val context: Context, private val usersModelArrayList: ArrayList<Usergames_model>) :

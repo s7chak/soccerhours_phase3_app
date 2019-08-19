@@ -1,5 +1,9 @@
 package com.project.soccerhours
 
+
+/**
+ * Orignial author: Abhishek Kardak
+ */
 class Usergames_model {
 
     var eventname: String? = null

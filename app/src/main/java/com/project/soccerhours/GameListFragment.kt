@@ -1,6 +1,7 @@
 package com.project.soccerhours
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,15 +13,19 @@ import com.squareup.okhttp.Request
 import com.squareup.okhttp.RequestBody
 import kotlinx.android.synthetic.main.gamelist_fragment.view.*
 import kotlinx.android.synthetic.main.listing_fragment.view.*
-import kotlinx.android.synthetic.main.gamelist_fragment.view.userlist
+import kotlinx.android.synthetic.main.gamelist_fragment.view.gamelist
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import com.squareup.okhttp.*
 import java.io.BufferedReader
 import java.io.IOException
+import java.net.URL
 import java.util.ArrayList
 
+/**
+ * Orignial author: Abhishek Kardak
+ */
 class GameListFragment : Fragment() {
     private val jsoncode = 1
     // Uncomment below if response is hardcoded instead of coming from a file asset
@@ -49,9 +54,9 @@ class GameListFragment : Fragment() {
         // Call getInfo to parse the JSON Array and return as a UserModel ArrayList
         userModelArrayList = getInfo(response!!)
         // Create a Custom Adapter that gives us a way to "view" each user in the ArrayList
-//        customAdapter = CustomEventAdapter(view.context, eventModelArrayList!!)
+        customAdapter = CustomAdapter(view.context, userModelArrayList!!)
         // set the custom adapter for the userlist viewing
-//        userlist!!.adapter = customAdapter
+        userlist!!.adapter = customAdapter
 
 
         view.back_button.setOnClickListener{
@@ -68,17 +73,17 @@ class GameListFragment : Fragment() {
 
 
         try {
-                val dataArray = JSONArray(response)
-                for (i in 0 until dataArray.length()) {
-                    val usersModel = Usergames_model()
-                    val dataobj = dataArray.getJSONObject(i)
-                    usersModel.setEventnames(dataobj.getString("eventname"))
-                    usersModel.setEventdates(dataobj.getString("eventdate"))
-                    usersModel.setVenueNames(dataobj.getString("venuename"))
-                    usersModel.setStattimes(dataobj.getString("starttime"))
-                    usersModel.setEndtimes(dataobj.getString("endtime"))
-                    userModelArrayList.add(usersModel)
-                }
+            val dataArray = JSONArray(response)
+            for (i in 0 until dataArray.length()) {
+                val usersModel = Usergames_model()
+                val dataobj = dataArray.getJSONObject(i)
+                usersModel.setEventnames(dataobj.getString("eventname"))
+                usersModel.setEventdates(dataobj.getString("eventdate"))
+                usersModel.setVenueNames(dataobj.getString("venuename"))
+                usersModel.setStattimes(dataobj.getString("starttime"))
+                usersModel.setEndtimes(dataobj.getString("endtime"))
+                userModelArrayList.add(usersModel)
+            }
         } catch (e: JSONException) {
             e.printStackTrace()
         }
@@ -86,24 +91,6 @@ class GameListFragment : Fragment() {
         return userModelArrayList
     }
 
-    /*
-    fun loadJSONFromAssets(): String? {
-        var json: String? = null
-        try {
-            val inputStream = this.context?.assets?.open("users.json")
-            val size = inputStream?.available()
-            val buffer = ByteArray(size!!)
-            inputStream.read(buffer)
-            inputStream.close()
-
-            json = String(buffer, Charsets.UTF_8)
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-
-        return json
-    }
-    */
 
     fun getStrings(response: String): ArrayList<String> {
         val userArrayList = ArrayList<String>()

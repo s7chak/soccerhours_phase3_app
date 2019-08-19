@@ -13,7 +13,7 @@
             android:layout_marginTop="10dp"
             android:textSize="20sp"
             android:textColor="#000"
-            android:text="JSON Data"/>
+            android:text="Your Events"/>
     <ListView
             android:layout_width="match_parent"
             android:layout_height="512dp"
