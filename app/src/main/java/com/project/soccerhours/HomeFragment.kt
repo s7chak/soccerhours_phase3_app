@@ -7,10 +7,6 @@ import android.view.ViewGroup
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.home_fragment.view.*
-import kotlinx.android.synthetic.main.listing_fragment.view.*
-import org.json.JSONArray
-import org.json.JSONException
-import java.io.IOException
 import java.util.ArrayList
 
 class HomeFragment : Fragment() {
@@ -21,7 +17,7 @@ class HomeFragment : Fragment() {
     private var userlist: ListView? = null
     private var userArrayList: ArrayList<String>? = null
     private var userModelArrayList: ArrayList<User_Model>? = null
-    private var customAdapter: CustomAdapter? = null
+    private var customAdapter: CustomEventAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

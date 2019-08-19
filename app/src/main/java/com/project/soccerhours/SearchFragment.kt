@@ -1,5 +1,6 @@
 package com.project.soccerhours
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.util.Log
@@ -15,15 +16,21 @@ import java.io.IOException
 import android.os.StrictMode
 import android.os.Build
 import kotlinx.android.synthetic.main.home_fragment.view.*
+import kotlinx.android.synthetic.main.search_fragment.*
 import kotlinx.android.synthetic.main.search_fragment.view.*
+import kotlinx.android.synthetic.main.search_fragment.view.szip_edit_text
+import kotlinx.android.synthetic.main.signup_fragment.*
+import org.json.JSONArray
+import org.json.JSONException
 import java.net.URL
+import java.util.ArrayList
 
 
 /**
  * Fragment representing the login screen.
  */
 class SearchFragment : Fragment() {
-    var gApp = GlobalApp()
+    val gApp = GlobalApp()
     var hosturl = gApp.globalUrl
 
     override fun onCreateView(
@@ -39,7 +46,8 @@ class SearchFragment : Fragment() {
         // Set an error if the password is less than 8 characters.
 
         view.ssearch_button.setOnClickListener {
-            (activity as NavigationHost).navigateTo(LogoutFragment(), false)
+            // Validate Zip Code
+            (activity as NavigationHost).navigateTo(EventListFragment.newInstance(szip_edit_text.text.toString().toInt()), true)
 
         }
 
@@ -47,46 +55,6 @@ class SearchFragment : Fragment() {
     }
 
 
-    private fun authLoginInfo():Boolean {
 
-        val username=user_edit_text.text!!.toString()
-        val password=password_edit_text.text!!.toString()
-//        val url = "https://footyhours.appspot.com/applogin/"+username+"/"+password
-
-        val url = URL(hosturl+"applogin/"+username+"/"+password)
-//        val url = "http://127.0.0.1:8080/applogin/"+username+"/"+password
-
-        Log.i("USERID",username)
-
-        Log.e("URL",url.toString())
-        val client = OkHttpClient()
-        val request = Request.Builder()
-            .url(url)
-            .header("User-Agent", "Android")
-            .build()
-        Log.i("REQUEST",request.toString())
-        val response = client.newCall(request).execute()
-        val jsonString = response?.body()?.string()
-        val json = JSONObject(jsonString)
-        if (json.get("loggedin") != 0){
-            return true
-        } else {
-            return false
-        }
-
-
-    }
-
-
-    // "isPasswordValid"  method goes here
-    // Currently checks for 8 characters but we could perform
-    // an actual validation with a remote service like the Web version below
-    private fun isPasswordValid(text: Editable?): Boolean {
-        return text != null && text.length >= 3
-    }
-
-    private fun isPasswordValidWeb(text: Editable?): Boolean {
-        return true
-    }
 
 }

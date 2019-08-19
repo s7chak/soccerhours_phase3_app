@@ -1,7 +1,6 @@
 package com.project.soccerhours
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,11 +19,6 @@ import org.json.JSONObject
 import com.squareup.okhttp.*
 import java.io.BufferedReader
 import java.io.IOException
-import java.io.InputStreamReader
-import java.io.OutputStreamWriter
-import java.net.HttpURLConnection
-import java.net.URL
-import java.net.URLEncoder
 import java.util.ArrayList
 
 class GameListFragment : Fragment() {
@@ -45,7 +39,7 @@ class GameListFragment : Fragment() {
         // Inflate the layout for this fragment
         val view =  inflater.inflate(R.layout.gamelist_fragment, container, false)
 
-        userlist = view.userlist
+        userlist = view.gamelist
 //        userModelArrayList = getInfo(response)  // uncomment this and comment the next line if response is above
         /*response = loadJSONFromAssets()
         */
@@ -55,9 +49,9 @@ class GameListFragment : Fragment() {
         // Call getInfo to parse the JSON Array and return as a UserModel ArrayList
         userModelArrayList = getInfo(response!!)
         // Create a Custom Adapter that gives us a way to "view" each user in the ArrayList
-        customAdapter = CustomAdapter(view.context, userModelArrayList!!)
+//        customAdapter = CustomEventAdapter(view.context, eventModelArrayList!!)
         // set the custom adapter for the userlist viewing
-        userlist!!.adapter = customAdapter
+//        userlist!!.adapter = customAdapter
 
 
         view.back_button.setOnClickListener{

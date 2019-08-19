@@ -1,13 +1,6 @@
-// The purpose of this example is to show
-// a. Fragments
-// b. How to navigate from one Fragment to another
-// c. How to use a Custom
-// The Main Activity simply launches the LoginFragment
-// The LoginFragement does its thing and navigates to
-// the ListingFragment which lists the contents of a JSON Array
-
 package com.project.soccerhours
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -15,6 +8,8 @@ import androidx.fragment.app.Fragment
 class MainActivity : AppCompatActivity(), NavigationHost {
 
 
+    var userIdSession = 0
+    val MyPREFERENCES = "AppPrefs"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,5 +39,11 @@ class MainActivity : AppCompatActivity(), NavigationHost {
         }
 
         transaction.commit()
+    }
+
+
+    fun setUserId(userId:Int) {
+
+        userIdSession = userId
     }
 }

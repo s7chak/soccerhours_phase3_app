@@ -6,19 +6,35 @@
               android:background="@color/colorAccent"
               android:orientation="vertical">
 
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="132dp"
+            android:text="@string/app_name"
+            android:textAllCaps="true"
+            android:textSize="16sp" />
+
+
 
     <Button
             android:text="Start Event"
-            android:layout_width="146dp"
-            android:layout_height="157dp" android:id="@+id/start_button"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:id="@+id/start_button"/>
     <Button
             android:text="Joined Games"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/joined_button"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:id="@+id/joined_button"/>
     <Button
             android:text="Search Games"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/search_button"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:id="@+id/search_button"/>
 
 
 </LinearLayout>
