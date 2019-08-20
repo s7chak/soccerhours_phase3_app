@@ -42,6 +42,7 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.login_fragment, container, false)
         // Set an error if the password is less than 8 characters.
+
         view.login_button.setOnClickListener {
             if (!isPasswordValid(password_edit_text.text!!)) {
                 password_text_input.error = getString(R.string.error_password)

@@ -16,7 +16,7 @@
             android:text="Events Near You"/>
         <ListView
                 android:layout_width="match_parent"
-                android:layout_height="512dp"
+                android:layout_height="560dp"
                 android:id="@+id/eventlist"/>
 
 

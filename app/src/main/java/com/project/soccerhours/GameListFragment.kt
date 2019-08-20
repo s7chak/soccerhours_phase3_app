@@ -12,7 +12,6 @@ import com.squareup.okhttp.OkHttpClient
 import com.squareup.okhttp.Request
 import com.squareup.okhttp.RequestBody
 import kotlinx.android.synthetic.main.gamelist_fragment.view.*
-import kotlinx.android.synthetic.main.listing_fragment.view.*
 import kotlinx.android.synthetic.main.gamelist_fragment.view.gamelist
 import org.json.JSONArray
 import org.json.JSONException
@@ -59,9 +58,9 @@ class GameListFragment : Fragment() {
         userlist!!.adapter = customAdapter
 
 
-        view.back_button.setOnClickListener{
-            (activity as NavigationHost).navigateTo(HomeFragment(), false)
-        }
+//        view.back_button.setOnClickListener{
+//            (activity as NavigationHost).navigateTo(HomeFragment(), false)
+//        }
 
         return view
     }
